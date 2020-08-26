@@ -46,8 +46,8 @@ public class Facade {
 
         /*
         Joey
-        acc 16903 - 500
-        acc 16904 - 300
+        acc 16903 - 200
+        acc 16904 - 400
         */
         ArrayList<AccountIf> cust2Accounts = new ArrayList();
         account = new BankAccount(16903);
@@ -62,7 +62,11 @@ public class Facade {
 
     public void doDeposit(double amt, CustomerIf cust, int accNo){
         //เพือฝากเงินเข้าบัญชีของ customer ตามหมายเลขบัญชีทีระบุ
+        //System.out.println(accNo);
+        //System.out.println(amt);
         cust.getAccount(accNo).deposit(amt);
+
+       
     }
 
     public AccountIf getBankAccount(CustomerIf cust, int accNo){

@@ -46,51 +46,57 @@ public class BankFacade {
         Facade obj = Facade.getMyFacadeObject();
         AccountIf account = null;
         
-        System.out.println("BankCustomer");
+        System.out.println("-BankCustomer-");
         CustomerIf cust1 = obj.getBankCustomer("Jane");
+        
         System.out.println("Name = " + cust1.getCustomerName());
         System.out.println("Has " + cust1.getNumAccounts() + " accounts");
         
-        System.out.println("BankAccount");
+        System.out.println("- BankAccount -");
         account = obj.getBankAccount(cust1, 16901);
         System.out.println("Account Number: " + account.getAccountNumber() + " has " + account.getBalance());
+        obj.doDeposit(100,cust1,16901);
+        System.out.println("Deposit Account Number: " + account.getAccountNumber() + " has " + account.getBalance());
+        
         account = obj.getBankAccount(cust1, 16902);
         System.out.println("Account Number: " + account.getAccountNumber() + " has " + account.getBalance());
-        
-        System.out.println("Deposit");
         obj.doDeposit(100,cust1,16902);
-        System.out.println("Account Number: " + account.getAccountNumber() + " has " + account.getBalance());
+        System.out.println("Deposit Account Number: " + account.getAccountNumber() + " has " + account.getBalance());
+
          
-        System.out.println("BankCustomer Information");
+        System.out.println("- BankCustomer Information -");
+        System.out.println("Name = " + cust1.getCustomerName()+ " Has " + cust1.getNumAccounts() + " accounts");
         ArrayList<AccountIf> accounts1 = obj.getBankCustomer("Jane").getllAccounts();
         for(AccountIf acc : accounts1) {
             System.out.println("Account number " + acc.getAccountNumber() + " has " + acc.getBalance());
         }
         
+        
         System.out.println(" ");
         
-        System.out.println("BankCustomer");
+        System.out.println("- BankCustomer -");
         CustomerIf cust2 = obj.getBankCustomer("Joey");
         System.out.println("Name = " + cust2.getCustomerName());
         System.out.println("Has " + cust2.getNumAccounts() + " accounts");
         
-        System.out.println("BankAccount");
+        System.out.println("- BankAccount -");
         account = obj.getBankAccount(cust2, 16903);
         System.out.println("Account Number: " + account.getAccountNumber() + " has " + account.getBalance());
+        obj.doDeposit(300, cust2, 16903);
+        System.out.println("Deposit Account Number: " + account.getAccountNumber() + " has " + account.getBalance());
+        
         account = obj.getBankAccount(cust2, 16904);
         System.out.println("Account Number: " + account.getAccountNumber() + " has " + account.getBalance());
-        
-        System.out.println("Deposit");
-        obj.doDeposit(300, cust2, 16903);
-        System.out.println("Account Number: " + account.getAccountNumber() + " has " + account.getBalance());
         obj.doDeposit(400, cust2, 16904);
-        System.out.println("Account Number: " + account.getAccountNumber() + " has " + account.getBalance());
+        System.out.println("Deposit Account Number: " + account.getAccountNumber() + " has " + account.getBalance());
         
-        System.out.println("BankCustomer Information");
+        System.out.println("- BankCustomer Information -");
         ArrayList<AccountIf> accounts2 = obj.getBankCustomer("Joey").getllAccounts();
         for(AccountIf acc : accounts2) {
             System.out.println("Account number " + acc.getAccountNumber() + " has " + acc.getBalance());
         }
+
+        
     }
     
 }
